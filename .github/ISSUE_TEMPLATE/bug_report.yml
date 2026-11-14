@@ -1,0 +1,67 @@
+name: Bug report
+description: Something in Space does not work as it should.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting this. Issues here are public, so leave out anything you would not want others to see.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead. Drag pictures or videos into this box to attach them.
+      placeholder: |
+        1. Select a Markdown file in Finder and press Space.
+        2. …
+
+        Expected: …
+        What happened: …
+    validations:
+      required: true
+
+  - type: textarea
+    id: mac
+    attributes:
+      label: Your Mac
+      description: |
+        Open Terminal, paste this command and press Return, then paste what it prints here. It prints only the macOS version, the Mac's model, chip and memory, and its displays.
+
+        ```
+        sw_vers; sysctl hw.model machdep.cpu.brand_string hw.memsize; system_profiler SPDisplaysDataType | grep -E "Chipset Model|Resolution|UI Looks like"
+        ```
+      render: text
+    validations:
+      required: true
+
+  - type: input
+    id: space
+    attributes:
+      label: Space version
+      description: In Space, open Settings › General. The version is in the About group.
+      placeholder: "1.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: plugins
+    attributes:
+      label: Plugins
+      description: The plugins that relate to the problem, each with the version shown in Settings › Plugins. Write "None" if no plugin is involved.
+      placeholder: |
+        Markdown 1.0
+        Syntax 1.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and crash reports
+      description: |
+        In Space, open Settings › General, find Logs in the About group and click Show in Finder. Select everything in that folder, Control-click and choose Compress, then drag the zip file into this box.
+
+        If Space quits before you can open Settings, its crash reports are in `~/Library/Logs/DiagnosticReports` (in Finder, choose Go › Go to Folder and paste the path). Zip the files whose names start with `Space` and attach them.
+
+        These files can include the names of files you opened and your Mac's user name. If you would rather not post them, email them to support@chord.ink with a link to this issue.
